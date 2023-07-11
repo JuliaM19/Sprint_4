@@ -36,7 +36,8 @@ public class CreationOrderByTopButtonOrderTest {
         this.testComment = testComment;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Аренда самоката через кнопку в верху страницы. " +
+            "Тестовые данные: {0}, {1}, {2}, {3}, {4}, {5}, {6}")
     public static Object[][] getTestData() {
         // генерация тестовых данных
         return new Object[][]{

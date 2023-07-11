@@ -10,7 +10,6 @@ import java.util.List;
 
 public class AboutRent {
     private final WebDriver webDriver;
-
     private final By datePicker = By.xpath("//input[@placeholder='* Когда привезти самокат']");
     private final By countDays = By.className("Dropdown-placeholder");
     private final By countDaysItem = By.className("Dropdown-option");
@@ -61,9 +60,6 @@ public class AboutRent {
 
     public String getTextOrderCreate() {
         return webDriver.findElement(textOrderCreated).getText();
-
-
     }
-
 
 }

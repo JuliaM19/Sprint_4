@@ -5,6 +5,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
 public class MainPage {
     private final WebDriver webDriver;
     private final String url = "https://qa-scooter.praktikum-services.ru/";
@@ -12,6 +14,10 @@ public class MainPage {
     private final By bottomOrderButton = By.className("Home_FinishButton__1_cWm");
     private final By faqLocator = By.className("Home_FourPart__1uthg");
     private final By buttonCookie = By.id("rcc-confirm-button");
+    private final By accordionHeading = By.className("accordion__heading");
+    private final By accordionPanel = By.className("accordion__panel");
+    private final By accordionItem = By.className("accordion__item");
+    private final By childLocator = By.cssSelector("p:nth-child(1)");
 
     public MainPage(WebDriver webDriver) {
         this.webDriver = webDriver;
@@ -41,4 +47,15 @@ public class MainPage {
         ((JavascriptExecutor) webDriver).executeScript("arguments[0].scrollIntoView();", faqElement);
     }
 
+    public List<WebElement> getAccordionItems() {
+        return webDriver.findElements(accordionItem);
+    }
+
+    public Accordion openAndGetAccordion(WebElement accordionItem) {
+        accordionItem.click();
+        WebElement accordionHeader = accordionItem.findElement(accordionHeading);
+        WebElement accordionText = accordionItem.findElement(accordionPanel).findElement(childLocator);
+
+        return new Accordion(accordionHeader.getText(), accordionText.getText());
+    }
 }

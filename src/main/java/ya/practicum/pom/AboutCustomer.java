@@ -14,20 +14,19 @@ public class AboutCustomer {
     private final By buttonCookie = By.id("rcc-confirm-button");
     private final By next = By.xpath("//button[text()='Далее']");
 
-
     public AboutCustomer(WebDriver webDriver) {
         this.webDriver = webDriver;
     }
 
-    public void inputName(String testName) {//Создать переменную testName
+    public void inputName(String testName) {
         webDriver.findElement(name).sendKeys(testName);
     }
 
-    public void inputSurname(String testSurname) {//Создать переменную
+    public void inputSurname(String testSurname) {
         webDriver.findElement(surname).sendKeys(testSurname);
     }
 
-    public void inputTestAddress(String testAddress) {//Создать переменную
+    public void inputTestAddress(String testAddress) {
         webDriver.findElement(address).sendKeys(testAddress);
     }
 
@@ -39,7 +38,7 @@ public class AboutCustomer {
         webDriver.findElement(chooseSubway).click();
     }
 
-    public void inputPhone(String testPhone) {//Создать переменную
+    public void inputPhone(String testPhone) {
         webDriver.findElement(phone).sendKeys(testPhone);
     }
 
